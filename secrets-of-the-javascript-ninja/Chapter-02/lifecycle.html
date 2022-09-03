@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web App Lifecycle</title>
+    <style>
+      #first { color: green;}
+      #second { color: red;}
+      #third { color: blue;}
+    </style>
+</head>
+<body>
+<ul id="first"></ul>
+<script>
+  function addMessage(element, message){
+    var messageElement = document.createElement("li");
+    messageElement.textContent = message;
+    element.appendChild(messageElement);
+  }
+
+  var first = document.getElementById("first");
+  addMessage(first, "Page loading");
+</script>
+
+<ul id="second"></ul>
+<script>
+  document.body.addEventListener("mousemove", function() {
+    var second = document.getElementById("second");
+    addMessage(second, "Event: mousemove");
+  });
+</script>
+
+<ul id="third"></ul>
+<script>
+  document.body.addEventListener("click", function(){
+    var third = document.getElementById("third");
+    addMessage(third, "Event: click");
+  });
+</script>
+
+
+</body>
+</html>
